@@ -135,8 +135,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 15
+  fireRate: 1
+  fireCountdown: 0
   enemyTag: Enemy
   partToRotate: {fileID: 1885464262241866378}
+  turnSpeed: 10
+  bulletPrefab: {fileID: 1745772847635211928, guid: 01524f33eed31de44a1b09e00b22789d, type: 3}
+  firePoint: {fileID: 7748309567902779219}
+--- !u!1 &4868097632740304798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7748309567902779219}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7748309567902779219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4868097632740304798}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.108, y: 3.315, z: -0.202}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5482461698886323352}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7155889198959591667
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,14 +198,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7155889198959591667}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.0047302265, y: -2.023316, z: -0.05623436}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.083, y: 1.9364799, z: -0.124}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5482461698886323352}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5359814660321225187
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -238,15 +274,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4753549266773194935, guid: 8d3267b7bcde97e49b276cfb33f69ae9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.046666466
+      value: -0.047
       objectReference: {fileID: 0}
     - target: {fileID: 4753549266773194935, guid: 8d3267b7bcde97e49b276cfb33f69ae9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.2853572
+      value: 0.702
       objectReference: {fileID: 0}
     - target: {fileID: 4753549266773194935, guid: 8d3267b7bcde97e49b276cfb33f69ae9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.017183304
+      value: 0.164
       objectReference: {fileID: 0}
     - target: {fileID: 4753549266773194935, guid: 8d3267b7bcde97e49b276cfb33f69ae9, type: 3}
       propertyPath: m_LocalRotation.w

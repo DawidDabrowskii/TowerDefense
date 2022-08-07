@@ -5,12 +5,26 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     private Transform target;
+
+    [Header("Attributes")]
+
     [SerializeField] private float range = 15f;
-    [SerializeField] private float turnSpeed = 10f;
+
+    [SerializeField] private float fireRate = 1f;
+    [SerializeField] private float fireCountdown = 0f;
+
+    [Header("Unity Setup Fields")]
 
     public string enemyTag = "Enemy";
 
     public Transform partToRotate;
+
+    [SerializeField] private float turnSpeed = 10f;
+
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+
+
 
     private void Start() // makes function check 2 times a second
     {
@@ -52,7 +66,25 @@ public class Turret : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles; // lerp helps with smoothing rotations in this case from 1 enemy to another
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f) ;
+
+        if (fireCountdown <= 0f) // if it reaches 0, shoot, if there is target, 'shoot'
+        {
+            Shoot();
+            fireCountdown = 1f / fireRate;
+        }
+
+        fireCountdown -= Time.deltaTime; // every second fire countdown is reduced by 1
     }
+
+    private void Shoot()
+    {
+        GameObject BulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = BulletGO.GetComponent<Bullet>();
+
+        if (bullet != null)
+            bullet.Seek(target);
+    }
+
     private void OnDrawGizmosSelected() // shown range of a turret
     {
         Gizmos.color = Color.red;
