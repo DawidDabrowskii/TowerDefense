@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     private Transform target;
 
     [SerializeField] float speed = 70f;
+    [SerializeField] float explosionRadius = 0f;
     public GameObject impactEffect;
 
     public void Seek (Transform _target)
@@ -32,6 +33,7 @@ public class Bullet : MonoBehaviour
         }
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        transform.LookAt(target);
 
     }
 
@@ -40,7 +42,37 @@ public class Bullet : MonoBehaviour
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 2f);
 
-        Destroy(target.gameObject);
+        if (explosionRadius > 0f) // AOE damage
+        {
+            Explode();
+        }
+        else // Single target damage
+        {
+            Damage(target);
+        }
+
         Destroy(gameObject);
+    }
+
+    void Explode() // function for AOE damage by creating sphere radius
+    {
+        Collider [] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.tag == "Enemy")
+            {
+                Damage(collider.transform);
+            }    
+        }    
+    }
+    void Damage(Transform enemy)
+    {
+        Destroy(enemy.gameObject);
+    }
+
+    private void OnDrawGizmosSelected() // radius of AOE
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere (transform.position, explosionRadius);
     }
 }

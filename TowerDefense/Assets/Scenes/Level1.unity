@@ -1640,7 +1640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standardTurretPrefab: {fileID: 4675193037123235935, guid: 827a73fb555198c4e8aed6e38df0bd8e, type: 3}
-  anotherTurretPrefab: {fileID: 4675193037123235935, guid: b8a908e58674e0844b97c8163461cd8d, type: 3}
+  cannonLauncherPrefab: {fileID: 7842888822707930003, guid: 14efdefcbe1ca4d439582277f5d1ea41, type: 3}
 --- !u!1001 &146531922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4830,6 +4830,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1252918233}
     m_Modifications:
     - target: {fileID: 9162648715978304618, guid: c8bfcf44a9b98054e984e0cbce777731, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a416c2c9a1b7a644abdb3c81b736fada, type: 3}
+    - target: {fileID: 9162648715978304618, guid: c8bfcf44a9b98054e984e0cbce777731, type: 3}
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
@@ -4841,13 +4845,17 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9162648715978304618, guid: c8bfcf44a9b98054e984e0cbce777731, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9162648715978304619, guid: c8bfcf44a9b98054e984e0cbce777731, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1252918237}
     - target: {fileID: 9162648715978304619, guid: c8bfcf44a9b98054e984e0cbce777731, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PurchaseAnotherTurret
+      value: PurchaseCannonLauncher
       objectReference: {fileID: 0}
     - target: {fileID: 9162648715978304619, guid: c8bfcf44a9b98054e984e0cbce777731, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -4943,7 +4951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9162648715978304918, guid: c8bfcf44a9b98054e984e0cbce777731, type: 3}
       propertyPath: m_Name
-      value: AnotherTurretItem
+      value: CannonLauncherItem
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8bfcf44a9b98054e984e0cbce777731, type: 3}
