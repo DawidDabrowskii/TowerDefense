@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class Node : MonoBehaviour
 {
     public Color hoverColor;
+    public Color notEnoughMoneyColor;
     public Vector3 positionOffset;
 
     [Header("Optional")]
@@ -49,13 +50,21 @@ public class Node : MonoBehaviour
 
      private void OnMouseEnter() // it will be called everytime mouse passes collider
     {
+        if (!buildManager.HasMoney)
+        {
+            rend.material.color = notEnoughMoneyColor;
+        }
+        else
+        {          
+            rend.material.color = hoverColor;
+        }
+
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
         if (!buildManager.CanBuild)
-            return;
+            return;   
 
-        rend.material.color = hoverColor;
     }
     private void OnMouseExit() // call after mouse will exit collider
     {

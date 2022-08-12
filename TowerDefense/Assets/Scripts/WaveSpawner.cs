@@ -27,7 +27,8 @@ public class WaveSpawner : MonoBehaviour
 
         countdown -= Time.deltaTime; // countdown is go down 1 by 1 second
 
-        waveCountdownText.text = Mathf.Round(countdown).ToString(); // round value to whole number
+        countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
+        waveCountdownText.text = string.Format("{0:00.00}", countdown); // formatting countdown to 0;00
     }
 
     IEnumerator SpawnWave() // ienumerator allows us to 'pause code'. it works with coroutines
